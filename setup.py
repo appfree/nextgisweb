@@ -31,6 +31,7 @@ requires = [
     'requests',
     'babel',
     'minio',
+    'mapbox-vector-tile',
 ]
 
 extras_require = {
