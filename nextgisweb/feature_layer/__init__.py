@@ -16,6 +16,7 @@ from .interface import (
     IFeatureQueryLike,
     IFeatureQueryIntersects)
 from .extension import FeatureExtension
+from .query import OPMAP, ParamsParser
 
 
 class FeatureLayerComponent(Component):

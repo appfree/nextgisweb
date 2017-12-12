@@ -31,6 +31,7 @@ define([
     "dijit/Toolbar",
     "ngw-pyramid/form/DisplayNameTextBox",
     "ngw-pyramid/form/ScaleTextBox",
+    "ngw-pyramid/form/CodeMirror",
     "dijit/form/TextBox",
     "dijit/form/CheckBox",
     "dijit/form/NumberTextBox",
@@ -141,7 +142,8 @@ define([
                             "layer_transparency": null,
                             "layer_min_scale_denom": null,
                             "layer_max_scale_denom": null,
-                            "layer_adapter": "image"
+                            "layer_adapter": "image",
+                            "layer_query": "{}"
                         }, {
                             parent: widget.getAddParent(),
                             attribute: "children"
@@ -173,6 +175,7 @@ define([
                         widget.wLayerMinScale.set("value", widget.getItemValue("layer_min_scale_denom"));
                         widget.wLayerMaxScale.set("value", widget.getItemValue("layer_max_scale_denom"));
                         widget.wLayerAdapter.set("value", widget.getItemValue("layer_adapter"));
+                        widget.wLayerQuery.set("value", widget.getItemValue("layer_query"));
                     }
 
                     // Изначально боковая панель со свойствами текущего элемента
@@ -221,6 +224,10 @@ define([
             this.wLayerAdapter.watch("value", function (attr, oldVal, newVal) {
                 widget.setItemValue("layer_adapter", newVal);
             });
+
+            this.wLayerQuery.watch("value", function (attr, oldVal, newVal) {
+                widget.setItemValue("layer_query", newVal);
+            });
         },
 
         startup: function () {
@@ -264,6 +271,7 @@ define([
                     layer_min_scale_denom: store.getValue(itm, "layer_min_scale_denom"),
                     layer_max_scale_denom: store.getValue(itm, "layer_max_scale_denom"),
                     layer_adapter: store.getValue(itm, "layer_adapter"),
+                    layer_query: store.getValue(itm, "layer_query"),
                     children: array.map(store.getValues(itm, "children"), function (i) { return traverse(i); })
                 };
             }

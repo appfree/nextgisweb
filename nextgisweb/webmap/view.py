@@ -74,6 +74,7 @@ def setup_pyramid(comp, config):
                     transparency=item.layer_transparency,
                     minScaleDenom=item.layer_min_scale_denom,
                     maxScaleDenom=item.layer_max_scale_denom,
+                    query=item.layer_query,
                 )
 
                 data['adapter'] = WebMapAdapter.registry.get(

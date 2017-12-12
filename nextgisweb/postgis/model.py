@@ -26,6 +26,8 @@ from ..env import env
 from ..geometry import geom_from_wkt, box
 from ..layer import SpatialLayerMixin
 from ..feature_layer import (
+    OPMAP,
+    ParamsParser,
     Feature,
     FeatureSet,
     LayerField,
@@ -534,6 +536,23 @@ class FeatureQueryBase(object):
 
     def filter_by(self, **kwargs):
         self._filter_by = kwargs
+
+    def filter_json(self, query=None):
+        if query is not None:
+            parser = ParamsParser(params_args=query)
+
+        filters = []
+        where = parser.parse_where()
+        for clause in where:
+            if clause['op'] in OPMAP:
+                filters.append(
+                    (clause['field'], OPMAP[clause['op']], clause['value']))
+            elif clause['op'] == 'between':
+                filters.extend((
+                    (clause['field'], OPMAP['>='], clause['value'][0]),
+                    (clause['field'], OPMAP['<='], clause['value'][1])))
+
+        self._filter = filters
 
     def order_by(self, *args):
         self._order_by = args

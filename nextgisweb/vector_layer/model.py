@@ -44,6 +44,8 @@ from ..models import declarative_base, DBSession
 from ..layer import SpatialLayerMixin, IBboxLayer
 
 from ..feature_layer import (
+    OPMAP,
+    ParamsParser,
     Feature,
     FeatureSet,
     LayerField,
@@ -851,6 +853,23 @@ class FeatureQueryBase(object):
             self._filter_sql = args[0]
         else:
             self._filter_sql = args
+
+    def filter_json(self, query=None):
+        if query is not None:
+            parser = ParamsParser(params_args=query)
+
+        filters = []
+        where = parser.parse_where()
+        for clause in where:
+            if clause['op'] in OPMAP:
+                filters.append(
+                    (clause['field'], OPMAP[clause['op']], clause['value']))
+            elif clause['op'] == 'between':
+                filters.extend((
+                    (clause['field'], OPMAP['>='], clause['value'][0]),
+                    (clause['field'], OPMAP['<='], clause['value'][1])))
+
+        self._filter = filters
 
     def order_by(self, *args):
         self._order_by = args
