@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nextgisweb 0.0\n"
 "Report-Msgid-Bugs-To: info@nextgis.ru\n"
-"POT-Creation-Date: 2018-05-04 02:13+0700\n"
+"POT-Creation-Date: 2018-05-07 17:10+0700\n"
 "PO-Revision-Date: 2015-09-13 16:08+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -87,8 +87,7 @@ msgstr "Создать"
 #: amd/ngw-pyramid/modelWidget/FormMixin.js:37
 #: amd/ngw-pyramid/template/CORSForm.hbs:26
 #: amd/ngw-pyramid/template/CustomCSSForm.hbs:25
-#: amd/ngw-pyramid/template/MeasurementUnitsForm.hbs:14
-#: amd/ngw-pyramid/template/MiscellaneousForm.hbs:34
+#: amd/ngw-pyramid/template/MiscellaneousForm.hbs:29
 #: amd/ngw-pyramid/template/SystemNameForm.hbs:10
 msgid "Save"
 msgstr "Сохранить"
@@ -137,23 +136,17 @@ msgstr ""
 "Здесь можно задать стили CSS. Они будут использованы для оформления всех "
 "страниц вашей Веб ГИС."
 
-#: amd/ngw-pyramid/template/MeasurementUnitsForm.hbs:8
-#: amd/ngw-pyramid/template/MiscellaneousForm.hbs:22
-msgid "Metric"
-msgstr "Метрические"
-
-#: amd/ngw-pyramid/template/MeasurementUnitsForm.hbs:9
-#: amd/ngw-pyramid/template/MiscellaneousForm.hbs:23
-msgid "Imperial"
-msgstr "Имперские"
-
 #: amd/ngw-pyramid/template/MiscellaneousForm.hbs:16
-msgid "Map logo link"
-msgstr "Ссылка логотипа на карте"
-
-#: amd/ngw-pyramid/template/MiscellaneousForm.hbs:21
 msgid "Measurement units"
 msgstr "Единицы измерения"
+
+#: amd/ngw-pyramid/template/MiscellaneousForm.hbs:17
+msgid "Meters/Kilometers"
+msgstr "Метры/Километры"
+
+#: amd/ngw-pyramid/template/MiscellaneousForm.hbs:18
+msgid "Feet/Miles"
+msgstr "Футы/Мили"
 
 #: template/404.mako:22
 msgid "Think this page should be here?"
@@ -190,4 +183,13 @@ msgstr "Пакет"
 #: template/pkginfo.mako:32
 msgid "Version"
 msgstr "Версия"
+
+#~ msgid "Metric"
+#~ msgstr "Метрические"
+
+#~ msgid "Imperial"
+#~ msgstr "Имперские"
+
+#~ msgid "Map logo link"
+#~ msgstr "Ссылка логотипа на карте"
 

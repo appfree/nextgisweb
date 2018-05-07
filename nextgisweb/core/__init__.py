@@ -79,8 +79,7 @@ class CoreComponent(Component):
                      ('system.full_name',
                       self.localizer().translate(
                           _('NextGIS geoinformation system'))),
-                     ('units', 'metric'),
-                     ('map_logo_link', 'http://nextgis.com')):
+                     ('units', 'metric')):
             self.init_settings(self.identity, k, self._settings.get(k, v))
 
     def backup(self):

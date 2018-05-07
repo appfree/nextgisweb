@@ -164,8 +164,7 @@ def system_name_put(request):
 
 def miscellaneous_get(request):
     units = env.core.settings_get('core', 'units')
-    map_logo_link = env.core.settings_get('core', 'map_logo_link')
-    return dict(units=units, map_logo_link=map_logo_link)
+    return dict(units=units)
 
 
 def miscellaneous_put(request):
@@ -173,7 +172,7 @@ def miscellaneous_put(request):
 
     body = request.json_body
     for k, v in body.iteritems():
-        if k in ('units', 'map_logo_link'):
+        if k in ('units',):
             env.core.settings_set('core', k, v)
         else:
             raise HTTPBadRequest("Invalid key '%s'" % k)

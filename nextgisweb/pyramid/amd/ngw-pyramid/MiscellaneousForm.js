@@ -12,7 +12,6 @@ define([
     "dojo/text!./template/MiscellaneousForm.hbs",
     // template
     "dijit/form/Button",
-    "dijit/form/TextBox",
     "dijit/layout/ContentPane",
     "dijit/layout/BorderContainer",
     "dojox/layout/TableContainer",
@@ -48,7 +47,6 @@ define([
             xhr.get(API_URL, {
                 handleAs: 'json'
             }).then(function (data) {
-                widget.wMapLogoLink.set('value', data.map_logo_link);
                 widget.wMeasurementUnits.set('value', data.units);
             });
         },
@@ -60,7 +58,6 @@ define([
                     "Content-Type": "application/json"
                 },
                 data: json.stringify({
-                    map_logo_link: this.wMapLogoLink.get('value'),
                     units: this.wMeasurementUnits.get('value')
                 })
             }).then(

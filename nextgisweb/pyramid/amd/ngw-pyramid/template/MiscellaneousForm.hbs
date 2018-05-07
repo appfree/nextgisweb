@@ -11,16 +11,11 @@
 
                 <div data-dojo-type="dojox/layout/TableContainer" data-dojo-props="cols:1, labelWidth: 200">
 
-                    <div data-dojo-type="dijit/form/TextBox"
-                        data-dojo-attach-point="wMapLogoLink"
-                        title="{{gettext 'Map logo link'}}" style="width: 100%">
-                    </div>
-
                     <select data-dojo-type="dijit/form/Select"
                         data-dojo-attach-point="wMeasurementUnits"
                         title="{{gettext 'Measurement units'}}" style="width: 100%">
-                        <option value="metric" selected="selected">{{gettext 'Metric'}}</option>
-                        <option value="imperial">{{gettext 'Imperial'}}</option>
+                        <option value="metric" selected="selected">{{gettext 'Meters/Kilometers'}}</option>
+                        <option value="imperial">{{gettext 'Feet/Miles'}}</option>
                     </select>
 
                 </div>
